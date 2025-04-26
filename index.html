@@ -1,0 +1,124 @@
+<template><!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0">
+      <title>bai</title>
+  </head>
+  <body>
+      <div class="todo-app"><div class="title">
+   Bailele的todo-app</div>
+    <div class="todo-form">
+      <input  v-model="inputValue" type="text" class="todo-input" placeholder="Add a todo"/>
+      <div @click="add" class="todo-button">add todo</div>
+  </div>
+ 
+  <div v-for="(item, index) in list"  :key="index" :class="[item.isComplete ? 'complete' : 'notcomplete']">
+      <div>   
+       <input v-model="item.isComplete" type="checkbox">
+      <span class="name">{{item.text}}</span></div>
+  
+      <div @click="del(index)" class="del" placeholder="">del</div></div>
+ 
+  </div>
+  
+  </body>
+  </html></template> 
+  
+  
+  
+  
+  
+  
+  <style scoped>
+  
+  body{min-height: 100vh;
+    margin: 0;
+    padding:0;
+    background: linear-gradient(to right, #406f80, #7080dc);
+}
+  
+
+  .todo-app{
+      width:98%;
+      height:500px;
+      background-color: #ffff;
+      border-radius: 10px;
+     padding-top: 30px;
+     box-sizing: border-box;
+      margin-top: 40px;
+      margin-left: 1%;
+     
+  
+  }
+  .title{
+      font-size: 30px;
+      font-weight: 700;
+      text-align: center;
+  
+      
+  
+  }
+  .todo-form{
+      display: flex;
+      margin-top: 20px;
+      margin-left: 30px;
+  
+  }
+  .todo-input{
+      margin-bottom: 20px;
+      border: 1px solid #dedede;
+      outline:none;
+      width:60%;
+      height: 50px;
+      border-radius: 20px 0 0 20px;
+      padding-left: 15px;
+  
+  }
+  .todo-button{
+      width:100px;
+      height: 52px;
+      border-radius: 0 20px 20px 0;
+      background: linear-gradient(to right, #406f80, #7080dc) ;
+      text-align: center;
+     line-height: 52px;
+      color: #ffff;
+      cursor: pointer;
+      user-select: none;
+  }
+.del{
+  color:red;
+  cursor: pointer;
+  user-select: none;
+  
+  }
+  .complete{
+    align-items: center;
+      justify-content: space-between;
+      display: flex;
+      box-sizing: border-box;  
+         width: 80%;
+      height: 50px;
+       margin: 8px auto; 
+       padding: 16px;
+      border-radius: 20px;
+  
+     box-shadow: rgba(149,157,165,0.2) 0px 8px 20px;
+  text-decoration: line-through;
+  opacity: 0.4;
+  }
+  .notcomplete{
+    align-items: center;
+      justify-content: space-between;
+      display: flex;
+      box-sizing: border-box;  
+         width: 80%;
+      height: 50px;
+       margin: 8px auto; 
+       padding: 16px;
+      border-radius: 20px;
+  
+     box-shadow: rgba(149,157,165,0.2) 0px 8px 20px;
+  
+  }
+  </style>
